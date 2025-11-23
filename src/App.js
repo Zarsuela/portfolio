@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./Home";
+import Prelim from "./Prelim";
+import Midterm from "./Midterm";
+import "./App.css";
 
 function App() {
+  const [page, setPage] = useState("home");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1 onClick={() => setPage("home")} style={{ cursor: "pointer" }}>
+          My Portfolio
+        </h1>
+        <nav>
+          <button onClick={() => setPage("home")}>Home</button>
+          <button onClick={() => setPage("prelim")}>Prelim</button>
+          <button onClick={() => setPage("midterm")}>Midterm</button>
+        </nav>
       </header>
+      <main>
+        {page === "home" && <Home />}
+        {page === "prelim" && <Prelim />}
+        {page === "midterm" && <Midterm />}
+      </main>
+      <footer>
+        <small>© 2025 John Daryl Zarsuela</small>
+      </footer>
     </div>
   );
 }

@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  background: 
+    radial-gradient(circle, #efe8f7 0%, #f9f7fd 100%),
+    repeating-linear-gradient(0deg, #e9e4f0 0px, #e9e4f0 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, #e9e4f0 0px, #e9e4f0 1px, transparent 1px, transparent 24px);
+  background-blend-mode: lighten;
+  color: #242444;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Wrap everything in a centered container */
+#root {
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 2em;
+  margin-bottom: 0.8em;
 }
 
-.App-link {
-  color: #61dafb;
+header h1 {
+  margin-bottom: 0.7em;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-size: 2.1em;
+  font-weight: 700;
+  color: #423075;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+nav {
+  display: flex;
+  gap: 0.8em;
+  justify-content: center;
+  width: 100%;
+}
+
+nav button, .cat-nav button {
+  background: #684bb1;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 90px;
+  padding: 0.7em 1.8em;
+  box-shadow: 0 1px 8px rgba(104,75,177,0.15);
+  margin-bottom: 0.6em;
+  cursor: pointer;
+  transition: background 0.14s, color 0.13s, box-shadow 0.19s;
+  text-align: center;
+}
+
+nav button.active, .cat-nav button.active {
+  background: #423075;
+  color: #efe8f7;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 62vh;
+  justify-content: flex-start;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Center content/card horizontally */
+.about-section {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 2.5em;
+  margin-bottom: 1.5em;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(104,97,160,0.15);
+  padding: 2.5em;
+  font-size: 1.14em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-section h2 {
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  color: #423075;
+}
+
+.about-card h3 {
+  font-size: 1.25em;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+.item-gallery {
+  width: 100%;
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.item-card img {
+  width: 100%;
+  max-width: 120px;         /* Never exceeds 120px width */
+  max-height: 85px;         /* Keeps thumbnails compact */
+  border-radius: 8px;
+  background: #f7f3fd;
+  margin-bottom: 0.7em;
+  box-shadow: 0 2px 20px rgba(104,75,177,0.10);
+  object-fit: contain;      /* Keeps image aspect ratio, no stretch */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Footer stays centered and at bottom */
+footer {
+  width: 100vw;
+  text-align: center;
+  padding: 1.1em 0 2em 0;
+  background: #423075;
+  color: #efe8f7;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-size: 1em;
+  position: fixed;
+  left: 0; bottom: 0;
+}
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.67);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 12px 48px rgba(40,40,60,0.23);
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    padding: 1.2rem 0.3rem;
+    margin: 2em 0.3em 1em 0.3em;
   }
-  to {
-    transform: rotate(360deg);
+  .item-gallery {
+    gap: 1rem;
+  }
+  .item-card {
+    width: 130px;
+    padding: 0.7em 0.2em 0.5em 0.2em;
+  }
+  footer {
+    font-size: 0.98em;
   }
 }
