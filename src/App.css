@@ -194,3 +194,52 @@ footer {
     font-size: 0.98em;
   }
 }
+
+.portfolio-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 16px rgba(104,75,177,0.13);
+  margin-bottom: 1.1em;
+  background: #f7f3fd;
+  display: block;
+}
+
+.contact-button {
+  background: #684bb1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 110px;
+  padding: 0.55em 1.2em;
+  box-shadow: 0 0.5px 8px rgba(104,75,177,0.11);
+  margin-top: 1.2em;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.contact-info {
+  margin-top: 0.95em;
+  background: #f7f3fd;
+  padding: 0.85em 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(104,75,177,0.09);
+  font-size: 1em;
+  color: #423075;
+}
+
+.portfolio-photo-box {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;        /* Slightly rounded box style */
+  box-shadow: 0 2px 16px rgba(104,75,177,0.13);
+  margin-bottom: 1.1em;
+  background: #f7f3fd;
+  display: block;
+  border: 2px solid #e9e4f0; /* Optional subtle border */
+}
+
